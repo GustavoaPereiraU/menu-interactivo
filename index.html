@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Menú del Restaurante - Estrella Roja</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal del menú -->
+    <div class="menu-container">
+        <!-- Encabezado del menú -->
+        <header class="menu-header">
+            <h1 class="restaurant-name">Estrella Dorada</h1>
+            <p class="menu-subtitle">Menú Exclusivo</p>
+        </header>
+
+        <!-- Contenedor de categorías -->
+        <div class="categories-container" id="categoriesContainer">
+            <!-- Las categorías se generarán dinámicamente con JavaScript -->
+        </div>
+
+        <!-- Modal para mostrar detalles de categorías -->
+        <div class="modal" id="categoryModal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalItems"></div>
+            </div>
+        </div>
+    </div>
+    <script src="dj-widget.js" data-room="brutal"></script>
+    <script src="script.js"></script>
+</body>
+</html>

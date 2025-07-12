@@ -1,0 +1,326 @@
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS para estilo sofisticado */
+:root {
+    --primary-black: #0a0a0a;
+    --secondary-black: #121212;
+    --accent-gold: #d4af37;
+    --deep-wine: #4b1c2f;
+    --text-white: #f8f8f8;
+    --text-gray: #b0b0b0;
+    --shadow-color: rgba(212, 175, 55, 0.2);
+    --transition-speed: 0.3s;
+}
+
+/* Tipografía refinada */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--primary-black);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ===== ENCABEZADO ===== */
+.menu-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px 0;
+    border-bottom: 2px solid var(--accent-gold);
+    animation: fadeInDown 1s ease-out;
+}
+
+.restaurant-name {
+    font-size: 3.5rem;
+    color: var(--accent-gold);
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px var(--shadow-color);
+}
+
+.menu-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-gray);
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* ===== CONTENEDOR DE CATEGORÍAS ===== */
+.categories-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* ===== TARJETAS DE CATEGORÍAS ===== */
+.category-card {
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 1px solid var(--accent-gold);
+    border-radius: 15px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+    border-color: var(--accent-gold);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.category-card:hover::before {
+    animation: shine 0.5s ease-in-out;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    font-family: 'Cinzel', serif;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.category-description {
+    color: var(--text-gray);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.category-icon {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.category-price {
+    color: var(--text-white);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.category-image {
+    width: 100%;
+    height: 200px; /* altura fija */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* recorta pero mantiene proporción */
+    display: block;
+    border-radius: 10px;
+}
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--secondary-black);
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid var(--accent-gold);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.close-btn {
+    color: var(--accent-gold);
+    float: right;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color var(--transition-speed) ease;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.close-btn:hover {
+    color: var(--text-white);
+    transform: scale(1.1);
+}
+
+#modalTitle {
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+.modal-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent-gold);
+    transition: all var(--transition-speed) ease;
+}
+
+.modal-item:hover {
+    background-color: rgba(212, 175, 55, 0.05);
+    transform: translateX(10px);
+}
+
+.modal-item h4 {
+    color: var(--text-white);
+    margin-bottom: 5px;
+}
+
+.modal-item p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.modal-item .price {
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ===== MEDIA QUERIES PARA RESPONSIVE ===== */
+@media (min-width: 768px) {
+    .categories-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .restaurant-name {
+        font-size: 4rem;
+    }
+
+    .menu-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-container {
+        padding: 40px;
+    }
+
+    .category-card {
+        padding: 40px;
+    }
+
+    .category-title {
+        font-size: 2rem;
+    }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b89c31;
+}
