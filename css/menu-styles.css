@@ -324,3 +324,40 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #b89c31;
 }
+/* -------------------------------
+   PIE DE PÁGINA
+--------------------------------- */
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ccc;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.footer-link {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-icon {
+  width: 16px;
+  height: 16px;
+  filter: invert(48%) sepia(96%) saturate(400%) hue-rotate(330deg);
+}

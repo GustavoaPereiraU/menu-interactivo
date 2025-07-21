@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel DJ - Gestión de Solicitudes</title>
+    <link rel="stylesheet" href="css/dj-style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginScreen">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🎧 DJ Panel</h1>
+                <p id="roomDisplay" class="room-name"></p>
+                <p>Acceso para DJ solamente</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required placeholder="Ingresa tu usuario">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="login-btn">🔐 Iniciar Sesión</button>
+            </form>
+        </div>
+    </div> 
+
+    <!-- Main Panel -->
+    <div class="main-panel" id="mainPanel">
+        <div class="header">
+            <div class="current-room-banner" id="currentRoomBanner">
+  Estas recibiendo las solicitudes de: <strong id="roomNamePlaceholder">...</strong>
+            </div>
+
+            <h1>🎵 Panel de Control DJ</h1>
+            <div class="header-actions">
+                <button type= "button" class="btn btn-clear" onclick="clearAllRequests()">🗑️ Limpiar Todo</button>
+                <button class="btn btn-logout" onclick="logout()">🚪 Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number" id="totalRequests">0</div>
+                <div>Total Solicitudes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="pendingRequests">0</div>
+                <div>Pendientes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="playingRequests">0</div>
+                <div>Reproduciendo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedRequests">0</div>
+                <div>Completadas</div>
+            </div>
+        </div>
+
+        <div class="requests-container">
+            <div class="requests-header">
+                <h2>📋 Lista de Solicitudes</h2>
+                <div class="filter-controls">
+                    <button class="filter-btn active" onclick="filterRequests('all')">Todas</button>
+                    <button class="filter-btn" onclick="filterRequests('pending')">Pendientes</button>
+                    <button class="filter-btn" onclick="filterRequests('playing')">Reproduciendo</button>
+                    <button class="filter-btn" onclick="filterRequests('played')">Completadas</button>
+                </div>
+            </div>
+
+            <div class="auto-refresh">
+                <label class="switch">
+                    <input type="checkbox" id="autoRefresh" checked>
+                    <span class="slider"></span>
+                </label>
+                <span>Actualización automática</span>
+            </div>
+
+            <div class="requests-list" id="requestsList">
+                <div class="empty-state">
+                    <h3>🎵 No hay solicitudes</h3>
+                    <p>Las solicitudes aparecerán aquí cuando los clientes las envíen</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/ui-dj.js"></script>
+
+</body>
+</html>

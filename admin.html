@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Administración</title>
+
+  <!-- ✅ YA NO CARGAMOS Firebase compat -->
+  <!-- ❌ Eliminar estas líneas: -->
+  <!--
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  -->
+
+  <!-- ✅ Estilos personalizados -->
+  <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+  <!-- Pantalla de Login -->
+  <div id="loginScreen">
+    <h2>🔐 Acceso Admin</h2>
+    <form id="adminLoginForm">
+      <input type="email" id="adminEmail" placeholder="Correo de admin" required>
+      <input type="password" id="adminPassword" placeholder="Contraseña" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </div>
+
+  <!-- Panel Administrativo -->
+  <div class="admin-panel" id="adminPanel" style="display: none;">
+    <h1>📋 Panel de Administración de DJs</h1>
+
+    <form id="createUserForm" class="create-form">
+      <input type="text" id="username" placeholder="Nombre de usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <input type="text" id="room" placeholder="Sala asignada" required>
+      <button type="submit">➕ Crear DJ</button>
+    </form>
+
+    <h2>🎧 DJs registrados</h2>
+    <ul id="userList"></ul>
+    <button class="btn btn-logout" id="adminLogoutBtn">🚪 Cerrar sesión</button>
+  </div>
+
+  <!-- ✅ Script modular moderno -->
+  <script type="module" src="js/admin-panel.js"></script>
+</body>
+</html>
